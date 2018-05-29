@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the SettingCustomReflectorPage page.
+ * Generated class for the SettingCustomreflectorPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,16 +10,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-setting-custom-reflector',
-  templateUrl: 'setting-custom-reflector.html',
+  selector: 'page-setting-customreflector',
+  templateUrl: 'setting-customreflector.html',
 })
-export class SettingCustomReflectorPage {
+export class SettingCustomreflectorPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SettingCustomReflectorPage');
+    console.log('ionViewDidLoad SettingCustomreflectorPage');
   }
 
 }
