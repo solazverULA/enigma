@@ -16,6 +16,7 @@ import { SettingPage } from '../pages/setting/setting';
 import { SettingCustomreflectorPage } from '../pages/setting-customreflector/setting-customreflector';
 import { SettingInitialpositionPage } from '../pages/setting-initialposition/setting-initialposition';
 import { SettingRouterscombinationPage } from '../pages/setting-routerscombination/setting-routerscombination';
+import { PEnigmaProvider } from '../providers/p-enigma/p-enigma';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { SettingRouterscombinationPage } from '../pages/setting-routerscombinati
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    PEnigmaProvider
   ]
 })
 export class AppModule {}
