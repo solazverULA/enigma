@@ -8,53 +8,89 @@
 
   <ion-navbar>
     <ion-title>Encriptar</ion-title>
+    <ion-buttons end>
+      	<button ion-button icon-only (click)="presentPopover($event)">
+		 	<ion-icon name="more"></ion-icon>
+		</button>
+    </ion-buttons>
   </ion-navbar>
-	<a (click)="setting()">Configuracion</a>
-	<a (click)="help()">Ayuda</a>
-	<a (click)="realtime = !realtime">Tiempo Real {{realtime}}</a>
-
 </ion-header>
 
-<ion-content padding>
-
-	<div *ngIf="realtime; else elseBlock">
-		<ion-item>
-			<ion-input 
-		    	[(ngModel)] = "inputText"
-		    	(ngModelChange) = "read()" 
-		    	placeholder="Ingrese texto:" 
-		    	type="text">
-		   </ion-input>
-		</ion-item>
-	</div>
-
-	<ng-template #elseBlock>
+<ion-content #popoverContent padding>
+	<div #popoverText>
 		<ion-grid>
-		   <ion-row>
-		      <ion-col col-8>
-			      <ion-item>
-			      	<ion-input 
-				    	[(ngModel)] = "inputText"
-				    	placeholder="Ingrese texto:" 
-				    	type="text">
-				    	</ion-input>
-				   </ion-item>
-		      </ion-col>
-		      <ion-col col-4>
-		      	<button
-		          ion-button
-		          block
-		          type="submit"
-				    (click) = "read()">
-		          Encriptar
-		        </button>
-		      </ion-col>
-		    </ion-row>
+		    <ion-row>
+			    <ion-col col-4>
+					<ion-item>
+						<ion-label>Router 1</ion-label>
+						<ion-select [(ngModel)]="position1" (ngModelChange)="onChange($event)">
+							<div *ngFor='let letter of abcStatic; trackBy: index;'>
+								<ion-option value="{{ letter }}">{{ letter }}</ion-option>
+							</div>
+						</ion-select>
+					</ion-item>
+			    </ion-col>
+			    <ion-col col-4>
+					<ion-item>
+						<ion-label>Router 2</ion-label>
+						<ion-select [(ngModel)]="position2" (ngModelChange)="onChange($event)">
+							<div *ngFor='let letter of abcStatic; trackBy: index;'>
+								<ion-option value="{{ letter }}">{{ letter }}</ion-option>
+							</div>
+						</ion-select>
+					</ion-item>
+			    </ion-col>
+			    <ion-col col-4>
+					<ion-item>
+						<ion-label>Router 3</ion-label>
+						<ion-select [(ngModel)]="position3" (ngModelChange)="onChange($event)">
+							<div *ngFor='let letter of abcStatic; trackBy: index;'>
+								<ion-option value="{{ letter }}">{{ letter }}</ion-option>
+							</div>
+						</ion-select>
+					</ion-item>
+			    </ion-col>
+			</ion-row>
 		</ion-grid>
-	</ng-template>
 
-	<ion-card>
-      {{outputText}}
-   </ion-card>
+		<div *ngIf="realtime; else elseBlock">
+			<ion-item>
+				<ion-input 
+			    	[(ngModel)] = "inputText"
+			    	(ngModelChange) = "read()" 
+			    	placeholder="Ingrese texto:" 
+			    	type="text">
+			   </ion-input>
+			</ion-item>
+		</div>
 
+		<ng-template #elseBlock>
+			<ion-grid>
+			   <ion-row>
+			      <ion-col col-8>
+				      <ion-item>
+				      	<ion-input 
+					    	[(ngModel)] = "inputText"
+					    	placeholder="Ingrese texto:" 
+					    	type="text">
+					    	</ion-input>
+					   </ion-item>
+			      </ion-col>
+			      <ion-col col-4>
+			      	<button
+			          ion-button
+			          block
+			          type="submit"
+					    (click) = "read()">
+			          Encriptar
+			        </button>
+			      </ion-col>
+			    </ion-row>
+			</ion-grid>
+		</ng-template>
+
+		<ion-card>
+	      {{outputText}}
+	   </ion-card>
+   </div>
 </ion-content>

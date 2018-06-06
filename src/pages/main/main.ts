@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavParams, PopoverController } from 'ionic-angular';
 import { PlugboardProvider } from '../../providers/plugboard/plugboard';
 import { ReflectorProvider } from '../../providers/reflector/reflector';
 import { RoutersProvider } from '../../providers/routers/routers';
-import { SettingPage } from '../setting/setting';
-import { HelpPage } from '../help/help';
+import { PopoverPage } from '../popover/popover';
 
 /**
  * Generated class for the MainPage page.
@@ -32,10 +31,10 @@ export class MainPage {
   realtime:boolean = false;
 
   constructor(
-    public navCtrl: NavController, 
     public navParams: NavParams,
     public plugboard: PlugboardProvider,
-    public reflector: ReflectorProvider)
+    public reflector: ReflectorProvider,
+    public popoverCtrl: PopoverController)
   {
 
     this.abcStatic = [
@@ -75,19 +74,14 @@ export class MainPage {
     let signal;
     let output;
 
-    //router 1 
     output = this.router1.encryptInside(letter,true);
     this.position1 = output.abcCurrent[0];
     letter = output.out;
     signal = output.signalOut;
-    
-    //router 2 
     output = this.router2.encryptInside(letter,signal);
     this.position2 = output.abcCurrent[0];
     letter = output.out;
     signal = output.signalOut;
-    
-    //router 3 
     output = this.router3.encryptInside(letter,signal);
     this.position3 = output.abcCurrent[0];
     letter = output.out;
@@ -100,32 +94,20 @@ export class MainPage {
   {
     let output;
 
-    //router 3
     output = this.router3.encryptOutside(letter);
     letter = output;
-    //router 2
     output = this.router2.encryptOutside(letter);
     letter = output;    
-    //router 1
     output = this.router1.encryptOutside(letter);
     letter = output;
 
     return letter;
   }
 
-  setting()
-  {
-  	this.navCtrl.push(SettingPage);
+  presentPopover(myEvent) {
+    let popover = this.popoverCtrl.create(PopoverPage);
+    popover.present({
+      ev: myEvent
+    });
   }
-
-  help()
-  {
-  	this.navCtrl.push(HelpPage);
-  }
-
-  ionViewDidLoad()
-  {
-    console.log('ionViewDidLoad MainPage');
-  }
-
 }
