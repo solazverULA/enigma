@@ -9,10 +9,10 @@ import { HelpPage } from '../help/help';
 	    <ion-list>
 		    <ion-item>
 			    <ion-label>Tiempo real</ion-label>
-			    <ion-toggle [(ngModel)]="realtime"></ion-toggle>
-			</ion-item>
-	      	<button ion-item (click)="setting()">Configuracion</button>
-	      	<button ion-item (click)="help()">Ayuda</button>
+			    <ion-toggle [(ngModel)]="realtime" (ngModelChange)="close($event)" ></ion-toggle>
+			  </ion-item>
+      	<button ion-item (click)="setting()">Configuración</button>
+      	<button ion-item (click)="help()">Ayuda</button>
 	    </ion-list>
 	  `
 })
@@ -27,9 +27,8 @@ export class PopoverPage {
   	 this.realtime = this.navParams.data.realtime;
   }
 
-  close() {
-  	  let data = { 'foo': 'bar' };
-    this.viewCtrl.dismiss(data);
+  close(event) {
+    this.viewCtrl.dismiss(event);
   }
 
   setting() {

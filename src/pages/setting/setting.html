@@ -7,14 +7,32 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>setting</ion-title>
+    <ion-title>Configuración</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-<a (click)="customreflector()">Customreflector</a>
-<a (click)="initialposition()">Initialposition</a>
-<a (click)="routerscombination()">routerscombination</a>
+	<ion-list>
+		<span>Controles de usuario</span>
+		<button ion-item (click)="initialposition()">
+			Posición de partida
+			<span>
+				Colocar los tres routes elegidos en la posición de partida que desee
+			</span>
+		</button>
+		<button ion-item (click)="routerscombination()">
+			Combinación de routers
+			<span>
+				Elige trés de los diez routers disponibles para crear tu texto enigma
+			</span>
+		</button>
+		<button ion-item (click)="customreflector()">
+			Personalización de Reflector 
+			<span>
+				Personaliza la configuración uno a uno de la tabla de reflector de la enigma
+			</span>
+		</button>
+	</ion-list>
 </ion-content>

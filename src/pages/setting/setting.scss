@@ -1,3 +1,10 @@
 page-setting {
-
+	ion-list>span{
+		font-weight: 600;
+	}
+	button span{
+		display: block;
+		font-size: 13px;
+		margin-top: 5px;
+	}
 }

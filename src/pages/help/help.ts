@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { SettingCustomreflectorPage } from '../setting-customreflector/setting-customreflector';
-import { SettingInitialpositionPage } from '../setting-initialposition/setting-initialposition';
-import { SettingRouterscombinationPage } from '../setting-routerscombination/setting-routerscombination';
+import { HelpAReflectorPage } from '../help-a-reflector/help-a-reflector';
+import { HelpARoutersPage } from '../help-a-routers/help-a-routers';
+import { HelpGEncriptPage } from '../help-g-encript/help-g-encript';
+import { HelpGSharePage } from '../help-g-share/help-g-share';
 /**
  * Generated class for the HelpPage page.
  *
@@ -20,20 +21,20 @@ export class HelpPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad HelpPage');
+  howEncrip() {
+    this.navCtrl.push(HelpGEncriptPage);
   }
 
-  reflector() {
-  	this.navCtrl.push(SettingCustomreflectorPage);
+  howShare() {
+    this.navCtrl.push(HelpGSharePage);
   }
 
-  position() {
-  	this.navCtrl.push(SettingInitialpositionPage);
+  howCombination() {
+    this.navCtrl.push(HelpARoutersPage);
   }
 
-  combination() {
-  	this.navCtrl.push(SettingRouterscombinationPage);
+  howReflector() {
+    this.navCtrl.push(HelpAReflectorPage);
   }
 
 }

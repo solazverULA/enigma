@@ -110,7 +110,7 @@ export class MainPage {
     });
 
     popover.onDidDismiss(data => {
-     console.log(data);
+      if(data != null) this.realtime = data;
     });
 
     popover.present({

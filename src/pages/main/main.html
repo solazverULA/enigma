@@ -22,7 +22,7 @@
 		    <ion-row>
 			    <ion-col col-4>
 					<ion-item>
-						<ion-label>Router 1</ion-label>
+						<ion-label>R1</ion-label>
 						<ion-select [(ngModel)]="position1" (ngModelChange)="onChange($event)">
 							<div *ngFor='let letter of abcStatic; trackBy: index;'>
 								<ion-option value="{{ letter }}">{{ letter }}</ion-option>
@@ -32,7 +32,7 @@
 			    </ion-col>
 			    <ion-col col-4>
 					<ion-item>
-						<ion-label>Router 2</ion-label>
+						<ion-label>R2</ion-label>
 						<ion-select [(ngModel)]="position2" (ngModelChange)="onChange($event)">
 							<div *ngFor='let letter of abcStatic; trackBy: index;'>
 								<ion-option value="{{ letter }}">{{ letter }}</ion-option>
@@ -42,7 +42,7 @@
 			    </ion-col>
 			    <ion-col col-4>
 					<ion-item>
-						<ion-label>Router 3</ion-label>
+						<ion-label>R3</ion-label>
 						<ion-select [(ngModel)]="position3" (ngModelChange)="onChange($event)">
 							<div *ngFor='let letter of abcStatic; trackBy: index;'>
 								<ion-option value="{{ letter }}">{{ letter }}</ion-option>

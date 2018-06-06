@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 import { SettingCustomreflectorPage } from '../setting-customreflector/setting-customreflector';
 import { SettingInitialpositionPage } from '../setting-initialposition/setting-initialposition';
 import { SettingRouterscombinationPage } from '../setting-routerscombination/setting-routerscombination';
@@ -18,23 +18,19 @@ import { SettingRouterscombinationPage } from '../setting-routerscombination/set
 })
 export class SettingPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SettingPage');
+  constructor(public navCtrl: NavController) {
   }
 
 	initialposition() {
-		this.navCtrl.push(SettingCustomreflectorPage);
-	}
-
-	routerscombination() {
 		this.navCtrl.push(SettingInitialpositionPage);
 	}
 
-	customreflector() {
+	routerscombination() {
 		this.navCtrl.push(SettingRouterscombinationPage);
+	}
+
+	customreflector() {
+		this.navCtrl.push(SettingCustomreflectorPage);
 	}
 
 }
