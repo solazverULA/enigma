@@ -105,7 +105,14 @@ export class MainPage {
   }
 
   presentPopover(myEvent) {
-    let popover = this.popoverCtrl.create(PopoverPage);
+    let popover = this.popoverCtrl.create(PopoverPage,{
+      realtime: this.realtime
+    });
+
+    popover.onDidDismiss(data => {
+     console.log(data);
+    });
+
     popover.present({
       ev: myEvent
     });

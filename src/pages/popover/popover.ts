@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, ViewController } from 'ionic-angular';
+import { NavController, ViewController, NavParams } from 'ionic-angular';
 
 import { SettingPage } from '../setting/setting';
 import { HelpPage } from '../help/help';
@@ -18,16 +18,21 @@ import { HelpPage } from '../help/help';
 })
 export class PopoverPage {
 
+	realtime :boolean;
   constructor(
   	public viewCtrl: ViewController,
-  	public navCtrl: NavController
-  	) {}
-
-  close() {
-    this.viewCtrl.dismiss();
+  	public navCtrl: NavController,
+  	public navParams: NavParams
+  	) {
+  	 this.realtime = this.navParams.data.realtime;
   }
 
-    setting() {
+  close() {
+  	  let data = { 'foo': 'bar' };
+    this.viewCtrl.dismiss(data);
+  }
+
+  setting() {
   	this.navCtrl.push(SettingPage);
   }
 
