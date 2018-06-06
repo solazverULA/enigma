@@ -17,6 +17,9 @@ import { SettingCustomreflectorPage } from '../pages/setting-customreflector/set
 import { SettingInitialpositionPage } from '../pages/setting-initialposition/setting-initialposition';
 import { SettingRouterscombinationPage } from '../pages/setting-routerscombination/setting-routerscombination';
 import { PEnigmaProvider } from '../providers/p-enigma/p-enigma';
+import { PlugboardProvider } from '../providers/plugboard/plugboard';
+import { RoutersProvider } from '../providers/routers/routers';
+import { ReflectorProvider } from '../providers/reflector/reflector';
 
 
 @NgModule({
@@ -57,7 +60,10 @@ import { PEnigmaProvider } from '../providers/p-enigma/p-enigma';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    PEnigmaProvider
+    PEnigmaProvider,
+    PlugboardProvider,
+    RoutersProvider,
+    ReflectorProvider
   ]
 })
 export class AppModule {}
