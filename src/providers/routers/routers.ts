@@ -21,21 +21,30 @@ export class RoutersProvider {
   	this.position = 0;
     this.signalOut = false;
 
-    this.abc = [
-      ' ','!','"','#','$','%','&','\'','(',')','*','+',',','-','.','/',
-      '0','1','2','3','4','5','6','7','8','9',':',';','<','=','>','?',
-      '@','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O',
-      'P','Q','R','S','T','U','V','W','X','Y','Z','[','\\',']','^','_',
-      '`','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o',
-      'p','q','r','s','t','u','v','w','x','y','z','{','|','}','~','DEL'
+    this.abc=[
+      'A','B','C','D',
+      'E','F','G','H',
+      'I','J','K','L',
+      'M','N','O','P',
+      'Q','R','S','T',
+      'U','V','W','X',
+      'Y','Z'
     ];
 
-    this.abcStatic = this.abc;
+    this.abcStatic=[
+      'A','B','C','D',
+      'E','F','G','H',
+      'I','J','K','L',
+      'M','N','O','P',
+      'Q','R','S','T',
+      'U','V','W','X',
+      'Y','Z'
+    ];
   }
 
-  setReg(regSelect){
-  	this.regSelect = regSelect;
-    this.regInput =  regSelect;
+  setReg(regSelect){ 
+  	this.regSelect = Object.assign([], regSelect);
+    this.regInput =  Object.assign([], regSelect);
   }
 
 	encryptInside(input,signal){
@@ -60,7 +69,7 @@ export class RoutersProvider {
       }
     }
 
-    var inputNumber = (input.charCodeAt(0) - " ".charCodeAt(0));
+    var inputNumber = (input.charCodeAt() - "A".charCodeAt(0));
 
     /*  1) this.abc[inputNumber]  Representa la Variable de entrada dentro del router
         2) this.abc.indexOf(1) Devuelve el numero de la posicion de la (1) en abc
@@ -84,12 +93,12 @@ export class RoutersProvider {
   };
 
   encryptOutside(input)
-  {
-    var inputNumber = (input.charCodeAt() - " ".charCodeAt(0));
-
+  { 
+    var inputNumber = (input.charCodeAt() - "A".charCodeAt(0));
+   
     //Proceso de encriptacion:
     var encrypt = this.abc[this.regInput.indexOf(this.abc[inputNumber])];
-
+   
     // Representa la salida de encrypt en el abcedario estatico
     return this.abcStatic[this.abc.indexOf(encrypt)];
   };
@@ -97,16 +106,17 @@ export class RoutersProvider {
 
   restart = function()
   {
-    this.regInput= this.regSelect;  
+    this.regInput= Object.assign([], this.regSelect);  
     this.position= 0;
 
-    this.abc = [
-      ' ','!','"','#','$','%','&','\'','(',')','*','+',',','-','.','/',
-      '0','1','2','3','4','5','6','7','8','9',':',';','<','=','>','?',
-      '@','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O',
-      'P','Q','R','S','T','U','V','W','X','Y','Z','[','\\',']','^','_',
-      '`','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o',
-      'p','q','r','s','t','u','v','w','x','y','z','{','|','}','~','DEL'
+    this.abc=[
+      'A','B','C','D',
+      'E','F','G','H',
+      'I','J','K','L',
+      'M','N','O','P',
+      'Q','R','S','T',
+      'U','V','W','X',
+      'Y','Z'
     ];
 
     return this.abc[0];
@@ -114,16 +124,17 @@ export class RoutersProvider {
 
   move(newposition)
   {
-    this.position = newposition.charCodeAt() - " ".charCodeAt(0);
-    this.regInput= this.regSelect; 
+    this.position = newposition.charCodeAt() - "A".charCodeAt(0);
+    this.regInput= Object.assign([], this.regSelect); 
 
-    this.abc = [
-      ' ','!','"','#','$','%','&','\'','(',')','*','+',',','-','.','/',
-      '0','1','2','3','4','5','6','7','8','9',':',';','<','=','>','?',
-      '@','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O',
-      'P','Q','R','S','T','U','V','W','X','Y','Z','[','\\',']','^','_',
-      '`','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o',
-      'p','q','r','s','t','u','v','w','x','y','z','{','|','}','~','DEL'
+    this.abc=[
+      'A','B','C','D',
+      'E','F','G','H',
+      'I','J','K','L',
+      'M','N','O','P',
+      'Q','R','S','T',
+      'U','V','W','X',
+      'Y','Z'
     ];
   
     //Colocamos el router en la posicion definida por el usuario

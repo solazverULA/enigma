@@ -13,19 +13,20 @@ export class ReflectorProvider {
 
   constructor()
   {
-    this.registry = [
-      '`','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o',
-      ' ','!','"','#','$','%','&','\'','(',')','*','+',',','-','.','/',
-      '@','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O',
-      '0','1','2','3','4','5','6','7','8','9',':',';','<','=','>','?',
-      'p','q','r','s','t','u','v','w','x','y','z','{','|','}','~','DEL',
-      'P','Q','R','S','T','U','V','W','X','Y','Z','[','\\',']','^','_'
+    this.registry= [
+      'E','K','M','F',
+      'A','D','G','Q',
+      'V','Z','B','T',
+      'C','W','Y','X',
+      'H','U','S','L',
+      'R','I','N','P',
+      'O','J'
     ];
   }
   
   transf(letter)
   {
-    let letterPosition = letter.charCodeAt() - " ".charCodeAt(0);
+    let letterPosition = letter.charCodeAt() - "A".charCodeAt(0);
     return this.registry[letterPosition];
   }
 }

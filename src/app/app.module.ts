@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { NgModule } from '@angular/core';
+import { IonicApp, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
@@ -17,10 +17,10 @@ import { SettingPage } from '../pages/setting/setting';
 import { SettingCustomreflectorPage } from '../pages/setting-customreflector/setting-customreflector';
 import { SettingInitialpositionPage } from '../pages/setting-initialposition/setting-initialposition';
 import { SettingRouterscombinationPage } from '../pages/setting-routerscombination/setting-routerscombination';
-import { PEnigmaProvider } from '../providers/p-enigma/p-enigma';
 import { PlugboardProvider } from '../providers/plugboard/plugboard';
 import { RoutersProvider } from '../providers/routers/routers';
 import { ReflectorProvider } from '../providers/reflector/reflector';
+import { WiringsProvider } from '../providers/wirings/wirings';
 
 
 @NgModule({
@@ -62,11 +62,10 @@ import { ReflectorProvider } from '../providers/reflector/reflector';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-    PEnigmaProvider,
     PlugboardProvider,
     RoutersProvider,
-    ReflectorProvider
+    ReflectorProvider,
+    WiringsProvider
   ]
 })
 export class AppModule {}
