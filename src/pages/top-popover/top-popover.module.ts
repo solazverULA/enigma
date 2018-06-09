@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { PopoverPage } from './popover';
+import { TopPopoverPage } from './top-popover';
 
 @NgModule({
   declarations: [
-    PopoverPage,
+    TopPopoverPage,
   ],
   imports: [
-    IonicPageModule.forChild(PopoverPage),
+    IonicPageModule.forChild(TopPopoverPage),
   ],
 })
 export class PopoverPageModule {}

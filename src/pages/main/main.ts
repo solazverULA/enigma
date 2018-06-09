@@ -4,7 +4,8 @@ import { PlugboardProvider } from '../../providers/plugboard/plugboard';
 import { ReflectorProvider } from '../../providers/reflector/reflector';
 import { WiringsProvider } from '../../providers/wirings/wirings';
 import { RoutersProvider } from '../../providers/routers/routers';
-import { PopoverPage } from '../popover/popover';
+import { TopPopoverPage } from '../top-popover/top-popover';
+import { CardPopoverPage } from '../card-popover/card-popover';
 
 /**
  * Generated class for the MainPage page.
@@ -48,8 +49,6 @@ export class MainPage {
     this.position1='A';
     this.position2='A';
     this.position3='A';
-
-    //console.log(this.wirings.get());
   }
 
   read()
@@ -107,14 +106,23 @@ export class MainPage {
     return letter;
   }
 
-  presentPopover(myEvent) {
-    let popover = this.popoverCtrl.create(PopoverPage,{
+  topPopover(myEvent) {
+    let popover = this.popoverCtrl.create(TopPopoverPage,{
       realtime: this.realtime
     });
 
     popover.onDidDismiss(data => {
       if(data != null) this.realtime = data;
     });
+
+    popover.present({
+      ev: myEvent
+    });
+  }
+
+
+  cardPopover(myEvent) {
+    let popover = this.popoverCtrl.create(CardPopoverPage);
 
     popover.present({
       ev: myEvent

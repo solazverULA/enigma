@@ -9,15 +9,15 @@
   <ion-navbar>
     <ion-title>Encriptar</ion-title>
     <ion-buttons end>
-      	<button ion-button icon-only (click)="presentPopover($event)">
+      	<button ion-button icon-only (click)="topPopover($event)">
 		 	<ion-icon name="more"></ion-icon>
 		</button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content #popoverContent padding>
-	<div #popoverText>
+<ion-content padding>
+	<div>
 		<ion-grid>
 		    <ion-row>
 			    <ion-col col-4>
@@ -91,7 +91,17 @@
 		</ng-template>
 
 		<ion-card>
-	      {{outputText}}
+	      	{{outputText}}
+	        <ion-row no-padding>
+			    <ion-col text-right>
+			    	<button ion-button icon-only>
+			        	<ion-icon name='copy'></ion-icon>
+			        </button>
+			        <button ion-button icon-only (click)="cardPopover($event)">
+			        	<ion-icon name='more'></ion-icon>
+			        </button>
+			    </ion-col>
+    		</ion-row>
 	   </ion-card>
    </div>
 </ion-content>

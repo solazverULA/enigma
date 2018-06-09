@@ -16,7 +16,7 @@ import { HelpPage } from '../help/help';
 	    </ion-list>
 	  `
 })
-export class PopoverPage {
+export class TopPopoverPage {
 
 	realtime :boolean;
   constructor(

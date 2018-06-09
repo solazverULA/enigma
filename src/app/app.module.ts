@@ -6,7 +6,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { MainPage } from '../pages/main/main';
-import { PopoverPage } from '../pages/popover/popover';
+import { TopPopoverPage } from '../pages/top-popover/top-popover';
+import { CardPopoverPage } from '../pages/card-popover/card-popover';
 import { WelcomePage } from '../pages/welcome/welcome';
 import { HelpPage } from '../pages/help/help';
 import { HelpAReflectorPage } from '../pages/help-a-reflector/help-a-reflector';
@@ -27,7 +28,8 @@ import { WiringsProvider } from '../providers/wirings/wirings';
   declarations: [
     MyApp,
     MainPage,
-    PopoverPage,
+    TopPopoverPage,
+    CardPopoverPage,
     WelcomePage,
     HelpPage,
     HelpAReflectorPage,
@@ -47,7 +49,8 @@ import { WiringsProvider } from '../providers/wirings/wirings';
   entryComponents: [
     MyApp,
     MainPage,
-    PopoverPage,
+    TopPopoverPage,
+    CardPopoverPage,
     WelcomePage,
     HelpPage,
     HelpAReflectorPage,
