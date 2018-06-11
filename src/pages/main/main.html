@@ -23,9 +23,17 @@
 			    <ion-col col-4>
 					<ion-item>
 						<ion-label>R1</ion-label>
-						<ion-select [(ngModel)]="position1" (ngModelChange)="onChange($event)">
-							<div *ngFor='let letter of abcStatic; trackBy: index;'>
-								<ion-option value="{{ letter }}">{{ letter }}</ion-option>
+						<ion-select 
+							[(ngModel)]="positions[0]" 
+							(ngModelChange)="move(0)">
+							<div 
+								*ngFor='let 
+								letter of abcStatic; 
+								trackBy: index;'>
+								<ion-option 
+									value="{{ letter }}">
+									{{ letter }}
+								</ion-option>
 							</div>
 						</ion-select>
 					</ion-item>
@@ -33,9 +41,17 @@
 			    <ion-col col-4>
 					<ion-item>
 						<ion-label>R2</ion-label>
-						<ion-select [(ngModel)]="position2" (ngModelChange)="onChange($event)">
-							<div *ngFor='let letter of abcStatic; trackBy: index;'>
-								<ion-option value="{{ letter }}">{{ letter }}</ion-option>
+						<ion-select 
+							[(ngModel)]="positions[1]" 
+							(ngModelChange)="move(1)">
+							<div 
+								*ngFor='let 
+								letter of abcStatic; 
+								trackBy: index;'>
+								<ion-option 
+									value="{{ letter }}">
+									{{ letter }}
+								</ion-option>
 							</div>
 						</ion-select>
 					</ion-item>
@@ -43,9 +59,17 @@
 			    <ion-col col-4>
 					<ion-item>
 						<ion-label>R3</ion-label>
-						<ion-select [(ngModel)]="position3" (ngModelChange)="onChange($event)">
-							<div *ngFor='let letter of abcStatic; trackBy: index;'>
-								<ion-option value="{{ letter }}">{{ letter }}</ion-option>
+						<ion-select 
+							[(ngModel)]="positions[2]" 
+							(ngModelChange)="move(2)">
+							<div 
+								*ngFor='let 
+								letter of abcStatic;
+								trackBy: index;'>
+								<ion-option 
+									value="{{ letter }}">
+									{{ letter }}
+								</ion-option>
 							</div>
 						</ion-select>
 					</ion-item>
@@ -94,10 +118,16 @@
 	      	{{outputText}}
 	        <ion-row no-padding>
 			    <ion-col text-right>
-			    	<button ion-button icon-only>
+			    	<button 
+			    		ion-button 
+			    		icon-only
+			    		(click)="clipboard.copy(outputText)">
 			        	<ion-icon name='copy'></ion-icon>
 			        </button>
-			        <button ion-button icon-only (click)="cardPopover($event)">
+			        <button 
+			        	ion-button 
+			        	icon-only 
+			        	(click)="cardPopover($event)">
 			        	<ion-icon name='more'></ion-icon>
 			        </button>
 			    </ion-col>

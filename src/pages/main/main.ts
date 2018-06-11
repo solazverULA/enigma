@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavParams, PopoverController } from 'ionic-angular';
+import { IonicPage, NavParams, PopoverController, ToastController } from 'ionic-angular';
 import { PlugboardProvider } from '../../providers/plugboard/plugboard';
 import { ReflectorProvider } from '../../providers/reflector/reflector';
 import { WiringsProvider } from '../../providers/wirings/wirings';
 import { RoutersProvider } from '../../providers/routers/routers';
 import { TopPopoverPage } from '../top-popover/top-popover';
 import { CardPopoverPage } from '../card-popover/card-popover';
+import { Clipboard } from '@ionic-native/clipboard';
+import { SocialSharing } from '@ionic-native/social-sharing';
+
 
 /**
  * Generated class for the MainPage page.
@@ -23,15 +26,15 @@ export class MainPage {
 
   inputText:string;
   outputText:string;
-  position1:string;
-  position2:string;
-  position3:string;
+  positions:Array<string>;
   abcStatic:Array<string>;
   a:number;
   b:number;
-  router1 = new RoutersProvider;
-  router2 = new RoutersProvider;
-  router3 = new RoutersProvider;
+  routers = [
+    new RoutersProvider,
+    new RoutersProvider,
+    new RoutersProvider
+  ];
   realtime:boolean = false;
 
   constructor(
@@ -39,18 +42,18 @@ export class MainPage {
     public plugboard: PlugboardProvider,
     public reflector: ReflectorProvider,
     public popoverCtrl: PopoverController,
-    public wirings: WiringsProvider
+    public wirings: WiringsProvider,
+    public clipboard: Clipboard,
+    private socialSharing: SocialSharing,
+    public toastCtrl: ToastController
     )
   {
-    this.router1.setReg(wirings.get(0));
-    this.router2.setReg(wirings.get(1));
-    this.router3.setReg(wirings.get(2));
+    this.routers[0].setReg(wirings.get(0));
+    this.routers[1].setReg(wirings.get(1));
+    this.routers[2].setReg(wirings.get(2));
     
-    this.position1='A';
-    this.position2='A';
-    this.position3='A';
+    this.positions= ['A', 'A', 'A'];
 
-    
     this.abcStatic=[
       'A','B','C','D',
       'E','F','G','H',
@@ -64,14 +67,17 @@ export class MainPage {
 
   read()
   {
-    let messageOutput="";
+    this.outputText = "";
     for (var i = 0; i < this.inputText.length; i++)
-      messageOutput = messageOutput.concat(this.encryptLetter(this.inputText[i]));
-    this.outputText = messageOutput;
+      this.outputText = this.outputText.concat(this.encrypt(this.inputText[i]));
     this.inputText = "";
   }
 
-  encryptLetter(letter)
+  move(number) {
+    this.routers[number].move(this.positions[number]);
+  }
+
+  encrypt(letter)
   {
     letter = this.plugboard.transf(letter);
     letter = this.inside(letter);
@@ -86,18 +92,18 @@ export class MainPage {
     let signal;
     let output;
 
-    output = this.router1.encryptInside(letter,true);
-    this.position1 = output.abcCurrent[0];
+    output = this.routers[0].encryptInside(letter,true);
+    this.positions[0] = output.abcCurrent[0];
     letter = output.out;
     signal = output.signalOut;
    
-    output = this.router2.encryptInside(letter,signal);
-    this.position2 = output.abcCurrent[0];
+    output = this.routers[1].encryptInside(letter,signal);
+    this.positions[1] = output.abcCurrent[0];
     letter = output.out;
     signal = output.signalOut;
    
-    output = this.router3.encryptInside(letter,signal);
-    this.position3 = output.abcCurrent[0];
+    output = this.routers[2].encryptInside(letter,signal);
+    this.positions[2] = output.abcCurrent[0];
     letter = output.out;
 
     return letter;
@@ -107,11 +113,11 @@ export class MainPage {
   outside(letter)
   {
     let output;
-    output = this.router3.encryptOutside(letter);
+    output = this.routers[2].encryptOutside(letter);
     letter = output;
-    output = this.router2.encryptOutside(letter);
+    output = this.routers[1].encryptOutside(letter);
     letter = output;    
-    output = this.router1.encryptOutside(letter);
+    output = this.routers[0].encryptOutside(letter);
     letter = output;
 
     return letter;
@@ -123,7 +129,8 @@ export class MainPage {
       realtime: this.realtime
     });
 
-    popover.onDidDismiss(data => {
+    popover.onDidDismiss(data => 
+    {
       if(data != null) this.realtime = data;
     });
 
@@ -133,8 +140,39 @@ export class MainPage {
   }
 
 
-  cardPopover(myEvent) {
+  cardPopover(myEvent) 
+  {
     let popover = this.popoverCtrl.create(CardPopoverPage);
+
+    popover.onDidDismiss(data => 
+    {
+      if(data === 0)
+      {
+        this.inputText = "";
+        this.outputText = "";
+        this.move(0)
+        this.move(1)
+        this.move(2)
+      }      
+
+      if(data === 1)
+      {
+        this.socialSharing.shareViaEmail(this.outputText)
+        .then(() => {
+          const toast = this.toastCtrl.create({
+            message: 'copiado',
+            duration: 3000
+          });
+          toast.present();
+        }).catch(() => {
+          const toast = this.toastCtrl.create({
+            message: 'error al copiar',
+            duration: 3000
+          });
+          toast.present();
+        });
+      };
+    });
 
     popover.present({
       ev: myEvent
