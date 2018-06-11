@@ -49,6 +49,17 @@ export class MainPage {
     this.position1='A';
     this.position2='A';
     this.position3='A';
+
+    
+    this.abcStatic=[
+      'A','B','C','D',
+      'E','F','G','H',
+      'I','J','K','L',
+      'M','N','O','P',
+      'Q','R','S','T',
+      'U','V','W','X',
+      'Y','Z'
+    ];
   }
 
   read()
@@ -106,7 +117,8 @@ export class MainPage {
     return letter;
   }
 
-  topPopover(myEvent) {
+  topPopover(myEvent) 
+  {
     let popover = this.popoverCtrl.create(TopPopoverPage,{
       realtime: this.realtime
     });
