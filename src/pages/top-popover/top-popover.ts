@@ -5,16 +5,17 @@ import { SettingPage } from '../setting/setting';
 import { HelpPage } from '../help/help';
 
 @Component({
-    template: `
-	    <ion-list>
-		    <ion-item>
-			    <ion-label>Tiempo real</ion-label>
-			    <ion-toggle [(ngModel)]="realtime" (ngModelChange)="close($event)" ></ion-toggle>
-			  </ion-item>
-      	<button ion-item (click)="setting()">Configuración</button>
-      	<button ion-item (click)="help()">Ayuda</button>
-	    </ion-list>
-	  `
+  selector: 'page-top-popover',
+  template: `
+    <ion-list>
+	    <ion-item>
+		    <ion-label>Tiempo real</ion-label>
+		    <ion-toggle [(ngModel)]="realtime" (ngModelChange)="close($event)" ></ion-toggle>
+		  </ion-item>
+    	<button ion-item (click)="setting()">Configuración</button>
+    	<button ion-item (click)="help()">Ayuda</button>
+    </ion-list>
+  `
 })
 export class TopPopoverPage {
 

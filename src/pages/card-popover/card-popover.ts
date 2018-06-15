@@ -3,12 +3,11 @@ import { ViewController } from 'ionic-angular';
 
 
 @Component({
-    template: `
-	    <ion-list>
-        <button ion-item (click)="share()">Compartir</button>
-      	<button ion-item (click)="clean()">Limpiar</button>
-	    </ion-list>
-	  `
+  selector: 'page-card-popover',
+  template: `
+      <button ion-item (click)="share()">Compartir</button>
+    	<button ion-item (click)="clean()">Limpiar</button>
+  `
 })
 export class CardPopoverPage {
 

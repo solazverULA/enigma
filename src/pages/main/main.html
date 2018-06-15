@@ -81,7 +81,8 @@
 			<ion-item>
 				<ion-input 
 			    	[(ngModel)] = "inputText"
-			    	(ngModelChange) = "read()" 
+			    	(ngModelChange) = "read()"
+			    	(keyup.enter)= "read()" 
 			    	placeholder="Ingrese texto:" 
 			    	type="text">
 			   </ion-input>
@@ -116,22 +117,20 @@
 
 		<ion-card>
 	      	{{outputText}}
-	        <ion-row no-padding>
-			    <ion-col text-right>
-			    	<button 
-			    		ion-button 
-			    		icon-only
-			    		(click)="clipboard.copy(outputText)">
-			        	<ion-icon name='copy'></ion-icon>
-			        </button>
-			        <button 
-			        	ion-button 
-			        	icon-only 
-			        	(click)="cardPopover($event)">
-			        	<ion-icon name='more'></ion-icon>
-			        </button>
-			    </ion-col>
-    		</ion-row>
+	    	<button 
+	    		ion-button 
+	    		icon-only
+	    		id="copy" 
+	    		(click)="clipboard.copy(outputText)">
+	        	<ion-icon name='copy'></ion-icon>
+	        </button>
+	        <button 
+	        	ion-button 
+	        	icon-only
+	        	id="more" 
+	        	(click)="cardPopover($event)">
+	        	<ion-icon name='more'></ion-icon>
+	        </button>
 	   </ion-card>
    </div>
 </ion-content>

@@ -2,5 +2,21 @@ page-main {
 	ion-card{
 		height: 100px;
 		padding: 20px; 
+		position: relative;
+
+		.button-md{
+			position: absolute;
+			box-shadow: initial;
+		}
+
+		#copy{
+			right: 30px;
+			bottom: 5px;
+		}
+
+		#more{
+			right: 8px;
+			bottom: 5px;
+		}
 	}
 }

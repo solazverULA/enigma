@@ -157,7 +157,7 @@ export class MainPage {
 
       if(data === 1)
       {
-        this.socialSharing.shareViaEmail(this.outputText)
+        this.socialSharing.share(this.outputText)
         .then(() => {
           const toast = this.toastCtrl.create({
             message: 'copiado',

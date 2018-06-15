@@ -22,6 +22,8 @@ import { PlugboardProvider } from '../providers/plugboard/plugboard';
 import { RoutersProvider } from '../providers/routers/routers';
 import { ReflectorProvider } from '../providers/reflector/reflector';
 import { WiringsProvider } from '../providers/wirings/wirings';
+import { Clipboard } from '@ionic-native/clipboard';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 
 @NgModule({
@@ -68,7 +70,9 @@ import { WiringsProvider } from '../providers/wirings/wirings';
     PlugboardProvider,
     RoutersProvider,
     ReflectorProvider,
-    WiringsProvider
+    WiringsProvider,
+    Clipboard,
+    SocialSharing
   ]
 })
 export class AppModule {}
