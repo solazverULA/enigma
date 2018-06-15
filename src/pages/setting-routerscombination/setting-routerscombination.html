@@ -15,4 +15,53 @@
 
 <ion-content padding>
 
+	<ion-card>
+		<ion-card-content>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis ipsa perferendis perspiciatis odio aliquid soluta excepturi, laborum necessitatibus nisi tenetur. Tempora fuga at eum ea rem quos cupiditate repudiandae nemo.
+		</ion-card-content>
+	</ion-card>
+	<ion-list>
+	  <ion-item>
+	    <ion-label>Router 1</ion-label>
+	    <ion-select [(ngModel)]="r1">
+  			<div 
+				*ngFor='let disk of wiring.getAll(); 
+				trackBy: index;'>
+				<ion-option
+					[selected]="index==r1" 
+					value="{{ index }}">
+					{{ disk }}
+				</ion-option>
+			</div>
+	    </ion-select>
+	  </ion-item>
+	  <ion-item>
+	    <ion-label>Router 2</ion-label>
+	    <ion-select [(ngModel)]="r2">
+  			<div 
+				*ngFor='let disk of wiring.getAll(); 
+				trackBy: index;'>
+				<ion-option
+					[selected]="index == r2" 
+					value="{{ index }}">
+					{{ disk }}
+				</ion-option>
+			</div>
+	    </ion-select>
+	  </ion-item>
+	 	<ion-item>
+	    <ion-label>Router 3</ion-label>
+	    <ion-select [(ngModel)]="r3">
+  			<div 
+				*ngFor='let disk of wiring.getAll(); 
+				trackBy: index;'>
+				<ion-option
+					[selected] = "index == r3" 
+					value="{{ index }}">
+					{{ disk }}
+				</ion-option>
+			</div>
+	    </ion-select>
+	  </ion-item>
+	</ion-list>
 </ion-content>

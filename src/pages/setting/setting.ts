@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 import { SettingCustomreflectorPage } from '../setting-customreflector/setting-customreflector';
-import { SettingInitialpositionPage } from '../setting-initialposition/setting-initialposition';
 import { SettingRouterscombinationPage } from '../setting-routerscombination/setting-routerscombination';
 
 /**
@@ -20,10 +19,6 @@ export class SettingPage {
 
   constructor(public navCtrl: NavController) {
   }
-
-	initialposition() {
-		this.navCtrl.push(SettingInitialpositionPage);
-	}
 
 	routerscombination() {
 		this.navCtrl.push(SettingRouterscombinationPage);

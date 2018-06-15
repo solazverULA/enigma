@@ -27,4 +27,8 @@ export class WiringsProvider {
     return this.wirings[row];
   }
 
+  getAll(){
+    return this.wirings;
+  }
+
 }

@@ -36,6 +36,7 @@ export class MainPage {
     new RoutersProvider
   ];
   realtime:boolean = false;
+  showR:boolean = false;
 
   constructor(
     public navParams: NavParams,
@@ -139,6 +140,16 @@ export class MainPage {
     });
   }
 
+  copy(){
+    this.clipboard.copy(this.outputText)
+    .then(() => {
+      const toast = this.toastCtrl.create({
+        message: 'Copiado',
+        duration: 3000
+      });
+      toast.present();
+    });
+  }
 
   cardPopover(myEvent) 
   {
@@ -160,13 +171,13 @@ export class MainPage {
         this.socialSharing.share(this.outputText)
         .then(() => {
           const toast = this.toastCtrl.create({
-            message: 'copiado',
+            message: 'Compartido',
             duration: 3000
           });
           toast.present();
         }).catch(() => {
           const toast = this.toastCtrl.create({
-            message: 'error al copiar',
+            message: 'Error al compartir',
             duration: 3000
           });
           toast.present();

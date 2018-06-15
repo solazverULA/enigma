@@ -9,6 +9,10 @@
   <ion-navbar>
     <ion-title>Encriptar</ion-title>
     <ion-buttons end>
+    	<button ion-button icon-only (click)="showR =! showR">
+		 	<ion-icon *ngIf="!showR" name="arrow-dropdown-circle"></ion-icon>
+		 	<ion-icon *ngIf="showR" name="arrow-dropup-circle"></ion-icon>
+		</button>
       	<button ion-button icon-only (click)="topPopover($event)">
 		 	<ion-icon name="more"></ion-icon>
 		</button>
@@ -18,7 +22,7 @@
 
 <ion-content padding>
 	<div>
-		<ion-grid>
+		<ion-grid *ngIf="showR">
 		    <ion-row>
 			    <ion-col col-4>
 					<ion-item>
@@ -116,12 +120,12 @@
 		</ng-template>
 
 		<ion-card>
-	      	{{outputText}}
+	      	Texto Encriptado: {{outputText}}
 	    	<button 
 	    		ion-button 
 	    		icon-only
 	    		id="copy" 
-	    		(click)="clipboard.copy(outputText)">
+	    		(click)="copy()">
 	        	<ion-icon name='copy'></ion-icon>
 	        </button>
 	        <button 

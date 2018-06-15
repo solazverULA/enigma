@@ -15,26 +15,29 @@
 
 <ion-content padding>
 	<ion-list>
-		GENERAL
-		<button ion-item (click)="howEncrip()">
-			Como encriptar
-			<span>Vea paso a paso como encriptar un mensaje</span>
-		</button>
-		<button ion-item (click)="howShare()">
-			Como compartir texto encriptado
-			<span>Comparte el texto encriptado por las redes sociales</span>
-		</button>
+		<ion-list-header id="top">
+			GENERAL
+		</ion-list-header>
+		<ion-item (click)="howEncrip()">
+			<h2>Como encriptar</h2>
+			<p>Vea paso a paso como encriptar un mensaje</p>
+		</ion-item>
+		<ion-item (click)="howShare()">
+			<h2>Como compartir texto encriptado</h2>
+			<p>Comparte el texto encriptado por las redes sociales</p>
+		</ion-item>
 	</ion-list>
 	<ion-list>
-		AVANZADA
-		<button ion-item (click)="howCombination()">
-			Routers
-			<span>Como personalizar la combinación de routes</span>
-		</button>
-		<button ion-item (click)="howReflector()">
-			Reflector
-			<span>Como personalizar el tablero de reflejo</span>
-		</button>
+		<ion-list-header>
+			AVANZADA
+		</ion-list-header>
+		<ion-item (click)="howCombination()">
+			<h2>Routers</h2>
+			<p>Como personalizar la combinación de routes</p>
+		</ion-item>
+		<ion-item (click)="howReflector()">
+			<h2>Reflector</h2>
+			<p>Como personalizar el tablero de reflejo</p>
+		</ion-item>
 	</ion-list>
-
 </ion-content>
