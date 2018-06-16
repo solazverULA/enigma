@@ -14,8 +14,6 @@ import { HelpAReflectorPage } from '../pages/help-a-reflector/help-a-reflector';
 import { HelpARoutersPage } from '../pages/help-a-routers/help-a-routers';
 import { HelpGEncriptPage } from '../pages/help-g-encript/help-g-encript';
 import { HelpGSharePage } from '../pages/help-g-share/help-g-share';
-import { SettingPage } from '../pages/setting/setting';
-import { SettingCustomreflectorPage } from '../pages/setting-customreflector/setting-customreflector';
 import { SettingRouterscombinationPage } from '../pages/setting-routerscombination/setting-routerscombination';
 import { PlugboardProvider } from '../providers/plugboard/plugboard';
 import { RoutersProvider } from '../providers/routers/routers';
@@ -37,8 +35,6 @@ import { IonicStorageModule } from '@ionic/storage';
     HelpARoutersPage,
     HelpGEncriptPage,
     HelpGSharePage,
-    SettingPage,
-    SettingCustomreflectorPage,
     SettingRouterscombinationPage
   ],
   imports: [
@@ -58,8 +54,6 @@ import { IonicStorageModule } from '@ionic/storage';
     HelpARoutersPage,
     HelpGEncriptPage,
     HelpGSharePage,
-    SettingPage,
-    SettingCustomreflectorPage,
     SettingRouterscombinationPage
   ],
   providers: [

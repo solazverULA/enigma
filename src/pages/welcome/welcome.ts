@@ -21,11 +21,7 @@ export class WelcomePage {
   	public navCtrl: NavController, 
   	public navParams: NavParams,
   	private storage: Storage
-  	){
-	    this.storage.get('ready').then((val) => {
-      	if(val) this.navCtrl.setRoot(MainPage);
-  		});
-  	}
+  	){}
 
   slides = [
     {

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 import { WiringsProvider } from '../../providers/wirings/wirings';
+import { MainPage } from '../main/main';
+import { Storage } from '@ionic/storage';
 
 
 /**
@@ -16,17 +18,23 @@ import { WiringsProvider } from '../../providers/wirings/wirings';
   templateUrl: 'setting-routerscombination.html',
 })
 export class SettingRouterscombinationPage {
-  r1 = 1;
-  r2 = 2;
-	r3 = 3;
+  r1:number;
+  r2:number;
+	r3:number;
   constructor(
-  	public navCtrl: NavController, 
-  	public navParams: NavParams,
-  	public wiring: WiringsProvider)
-  {}
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SettingRouterscombinationPage');
+  	public navCtrl: NavController,
+  	public wiring: WiringsProvider,
+    public storage: Storage)
+  {
+    storage.get('wiringsSelected').then((val) => {
+      this.r1 = val[0];
+      this.r2 = val[1];
+      this.r3 = val[2];
+    });
   }
 
+  done(){
+    this.storage.set('wiringsSelected', [this.r1,this.r2,this.r3]);
+    this.navCtrl.push(MainPage);
+  }
 }

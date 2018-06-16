@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, ViewController, NavParams } from 'ionic-angular';
 
-import { SettingPage } from '../setting/setting';
+import { SettingRouterscombinationPage } from '../setting-routerscombination/setting-routerscombination';
 import { HelpPage } from '../help/help';
 
 @Component({
@@ -33,7 +33,7 @@ export class TopPopoverPage {
   }
 
   setting() {
-  	this.navCtrl.push(SettingPage);
+  	this.navCtrl.push(SettingRouterscombinationPage);
   }
 
   help() {

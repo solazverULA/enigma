@@ -9,8 +9,12 @@
   <ion-navbar>
     <ion-title>Encriptar</ion-title>
     <ion-buttons end>
+
+    	<button *ngIf="showR" ion-button icon-only (click)="restart()">
+    		<ion-icon name="refresh"></ion-icon>
+		</button> 	
     	<button ion-button icon-only (click)="showR =! showR">
-		 	<ion-icon *ngIf="!showR" name="arrow-dropdown-circle"></ion-icon>
+    		<ion-icon *ngIf="!showR" name="arrow-dropdown-circle"></ion-icon>
 		 	<ion-icon *ngIf="showR" name="arrow-dropup-circle"></ion-icon>
 		</button>
       	<button ion-button icon-only (click)="topPopover($event)">
@@ -85,8 +89,7 @@
 			<ion-item>
 				<ion-input 
 			    	[(ngModel)] = "inputText"
-			    	(ngModelChange) = "read()"
-			    	(keyup.enter)= "read()" 
+			    	(ngModelChange) = "autoRead()"
 			    	placeholder="Ingrese texto:" 
 			    	type="text">
 			   </ion-input>

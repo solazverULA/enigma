@@ -8,6 +8,7 @@ import { TopPopoverPage } from '../top-popover/top-popover';
 import { CardPopoverPage } from '../card-popover/card-popover';
 import { Clipboard } from '@ionic-native/clipboard';
 import { SocialSharing } from '@ionic-native/social-sharing';
+import { Storage } from '@ionic/storage';
 
 
 /**
@@ -25,7 +26,7 @@ import { SocialSharing } from '@ionic-native/social-sharing';
 export class MainPage {
 
   inputText:string;
-  outputText:string;
+  outputText = "";
   positions:Array<string>;
   abcStatic:Array<string>;
   a:number;
@@ -37,6 +38,7 @@ export class MainPage {
   ];
   realtime:boolean = false;
   showR:boolean = false;
+  recordSize = 0;
 
   constructor(
     public navParams: NavParams,
@@ -46,13 +48,10 @@ export class MainPage {
     public wirings: WiringsProvider,
     public clipboard: Clipboard,
     private socialSharing: SocialSharing,
-    public toastCtrl: ToastController
+    public toastCtrl: ToastController,
+    public storage: Storage
     )
-  {
-    this.routers[0].setReg(wirings.get(0));
-    this.routers[1].setReg(wirings.get(1));
-    this.routers[2].setReg(wirings.get(2));
-    
+  { 
     this.positions= ['A', 'A', 'A'];
 
     this.abcStatic=[
@@ -66,6 +65,15 @@ export class MainPage {
     ];
   }
 
+  ionViewWillEnter() {
+    this.storage.get('wiringsSelected')
+    .then((val) => {
+      this.routers[0].setReg(this.wirings.get(val[0]));
+      this.routers[1].setReg(this.wirings.get(val[1]));
+      this.routers[2].setReg(this.wirings.get(val[2])); 
+    });
+  } 
+
   read()
   {
     this.outputText = "";
@@ -73,9 +81,27 @@ export class MainPage {
       this.outputText = this.outputText.concat(this.encrypt(this.inputText[i]));
     this.inputText = "";
   }
+  autoRead(){
+    if (this.inputText == "") {
+      this.outputText =""
+      this.recordSize = 0;
+    }
+    else if(this.inputText.length > this.recordSize)
+    {
+      this.outputText 
+      = this.outputText.concat(this.encrypt(this.inputText.slice(-1)));
+      this.recordSize = this.inputText.length;
+    }
+  }
 
   move(number) {
     this.routers[number].move(this.positions[number]);
+  }
+
+  restart(){
+    this.positions[0] = this.routers[0].restart();
+    this.positions[1] = this.routers[1].restart();
+    this.positions[2] = this.routers[2].restart(); 
   }
 
   encrypt(letter)
