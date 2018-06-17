@@ -1,5 +1,6 @@
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { IonicStorageModule } from '@ionic/storage';
 
 export class PlatformMock {
   public ready(): Promise<string> {
@@ -75,6 +76,35 @@ export class StatusBarMock extends StatusBar {
 export class SplashScreenMock extends SplashScreen {
   hide() {
     return;
+  }
+}
+
+export class IonicStorageMock extends IonicStorageModule {
+
+    ready(){
+      return true;
+    } 
+
+    set(){
+      return;
+    } 
+
+    get(key: string){
+      if (key == 'ready') return true;
+      else return [0,1,2];
+    } 
+
+    remove(){
+      return;
+    } 
+
+    clear(){
+      return;
+    } 
+
+    length(){
+      return 1;
+    } 
   }
 }
 
