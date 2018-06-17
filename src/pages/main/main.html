@@ -9,6 +9,14 @@
   <ion-navbar>
     <ion-title>Encriptar</ion-title>
     <ion-buttons end>
+
+    	<button *ngIf="showR" ion-button icon-only (click)="restart()">
+    		<ion-icon name="refresh"></ion-icon>
+		</button> 	
+    	<button ion-button icon-only (click)="showR =! showR">
+    		<ion-icon *ngIf="!showR" name="arrow-dropdown-circle"></ion-icon>
+		 	<ion-icon *ngIf="showR" name="arrow-dropup-circle"></ion-icon>
+		</button>
       	<button ion-button icon-only (click)="topPopover($event)">
 		 	<ion-icon name="more"></ion-icon>
 		</button>
@@ -18,14 +26,22 @@
 
 <ion-content padding>
 	<div>
-		<ion-grid>
+		<ion-grid *ngIf="showR">
 		    <ion-row>
 			    <ion-col col-4>
 					<ion-item>
 						<ion-label>R1</ion-label>
-						<ion-select [(ngModel)]="position1" (ngModelChange)="onChange($event)">
-							<div *ngFor='let letter of abcStatic; trackBy: index;'>
-								<ion-option value="{{ letter }}">{{ letter }}</ion-option>
+						<ion-select 
+							[(ngModel)]="positions[0]" 
+							(ngModelChange)="move(0)">
+							<div 
+								*ngFor='let 
+								letter of abcStatic; 
+								trackBy: index;'>
+								<ion-option 
+									value="{{ letter }}">
+									{{ letter }}
+								</ion-option>
 							</div>
 						</ion-select>
 					</ion-item>
@@ -33,9 +49,17 @@
 			    <ion-col col-4>
 					<ion-item>
 						<ion-label>R2</ion-label>
-						<ion-select [(ngModel)]="position2" (ngModelChange)="onChange($event)">
-							<div *ngFor='let letter of abcStatic; trackBy: index;'>
-								<ion-option value="{{ letter }}">{{ letter }}</ion-option>
+						<ion-select 
+							[(ngModel)]="positions[1]" 
+							(ngModelChange)="move(1)">
+							<div 
+								*ngFor='let 
+								letter of abcStatic; 
+								trackBy: index;'>
+								<ion-option 
+									value="{{ letter }}">
+									{{ letter }}
+								</ion-option>
 							</div>
 						</ion-select>
 					</ion-item>
@@ -43,9 +67,17 @@
 			    <ion-col col-4>
 					<ion-item>
 						<ion-label>R3</ion-label>
-						<ion-select [(ngModel)]="position3" (ngModelChange)="onChange($event)">
-							<div *ngFor='let letter of abcStatic; trackBy: index;'>
-								<ion-option value="{{ letter }}">{{ letter }}</ion-option>
+						<ion-select 
+							[(ngModel)]="positions[2]" 
+							(ngModelChange)="move(2)">
+							<div 
+								*ngFor='let 
+								letter of abcStatic;
+								trackBy: index;'>
+								<ion-option 
+									value="{{ letter }}">
+									{{ letter }}
+								</ion-option>
 							</div>
 						</ion-select>
 					</ion-item>
@@ -57,7 +89,7 @@
 			<ion-item>
 				<ion-input 
 			    	[(ngModel)] = "inputText"
-			    	(ngModelChange) = "read()" 
+			    	(ngModelChange) = "autoRead()"
 			    	placeholder="Ingrese texto:" 
 			    	type="text">
 			   </ion-input>
@@ -91,17 +123,21 @@
 		</ng-template>
 
 		<ion-card>
-	      	{{outputText}}
-	        <ion-row no-padding>
-			    <ion-col text-right>
-			    	<button ion-button icon-only>
-			        	<ion-icon name='copy'></ion-icon>
-			        </button>
-			        <button ion-button icon-only (click)="cardPopover($event)">
-			        	<ion-icon name='more'></ion-icon>
-			        </button>
-			    </ion-col>
-    		</ion-row>
+	      	Texto Encriptado: {{outputText}}
+	    	<button 
+	    		ion-button 
+	    		icon-only
+	    		id="copy" 
+	    		(click)="copy()">
+	        	<ion-icon name='copy'></ion-icon>
+	        </button>
+	        <button 
+	        	ion-button 
+	        	icon-only
+	        	id="more" 
+	        	(click)="cardPopover($event)">
+	        	<ion-icon name='more'></ion-icon>
+	        </button>
 	   </ion-card>
    </div>
 </ion-content>
