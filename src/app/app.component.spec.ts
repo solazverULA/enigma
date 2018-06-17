@@ -5,6 +5,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Storage } from '@ionic/storage';
 
+import { WelcomePage } from '../pages/welcome/welcome';
+import { MainPage } from '../pages/main/main';
 
 import { MyApp } from './app.component';
 import {
@@ -40,6 +42,10 @@ describe('MyApp Component', () => {
 
   it('should be created', () => {
     expect(component instanceof MyApp).toBe(true);
+  });
+
+  it('default with a root page of Welcome', () => {
+    expect(component['rootPage']).toBe(WelcomePage);
   });
 
 });
