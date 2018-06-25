@@ -1,4 +1,11 @@
 page-main {
+
+	.card-md {
+		background: color($colors, primary);
+		color: white;
+		box-shadow: initial;	
+	}
+
 	ion-card{
 		height: 100px;
 		padding: 20px; 
