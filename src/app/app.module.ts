@@ -10,7 +10,6 @@ import { TopPopoverPage } from '../pages/top-popover/top-popover';
 import { CardPopoverPage } from '../pages/card-popover/card-popover';
 import { WelcomePage } from '../pages/welcome/welcome';
 import { HelpPage } from '../pages/help/help';
-import { HelpAReflectorPage } from '../pages/help-a-reflector/help-a-reflector';
 import { HelpARoutersPage } from '../pages/help-a-routers/help-a-routers';
 import { HelpGEncriptPage } from '../pages/help-g-encript/help-g-encript';
 import { HelpGSharePage } from '../pages/help-g-share/help-g-share';
@@ -31,7 +30,6 @@ import { IonicStorageModule } from '@ionic/storage';
     CardPopoverPage,
     WelcomePage,
     HelpPage,
-    HelpAReflectorPage,
     HelpARoutersPage,
     HelpGEncriptPage,
     HelpGSharePage,
@@ -50,7 +48,6 @@ import { IonicStorageModule } from '@ionic/storage';
     CardPopoverPage,
     WelcomePage,
     HelpPage,
-    HelpAReflectorPage,
     HelpARoutersPage,
     HelpGEncriptPage,
     HelpGSharePage,

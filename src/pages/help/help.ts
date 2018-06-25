@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { HelpAReflectorPage } from '../help-a-reflector/help-a-reflector';
 import { HelpARoutersPage } from '../help-a-routers/help-a-routers';
 import { HelpGEncriptPage } from '../help-g-encript/help-g-encript';
 import { HelpGSharePage } from '../help-g-share/help-g-share';
@@ -32,9 +31,4 @@ export class HelpPage {
   howCombination() {
     this.navCtrl.push(HelpARoutersPage);
   }
-
-  howReflector() {
-    this.navCtrl.push(HelpAReflectorPage);
-  }
-
 }
