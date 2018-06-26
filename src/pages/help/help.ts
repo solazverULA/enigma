@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 import { HelpARoutersPage } from '../help-a-routers/help-a-routers';
 import { HelpGEncriptPage } from '../help-g-encript/help-g-encript';
 import { HelpGSharePage } from '../help-g-share/help-g-share';
@@ -17,7 +17,7 @@ import { HelpGSharePage } from '../help-g-share/help-g-share';
 })
 export class HelpPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController) {
   }
 
   howEncrip() {

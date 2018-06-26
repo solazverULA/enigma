@@ -140,6 +140,51 @@ export class NavMock {
 
 }
 
+export class NavParamsMock {
+
+  static returnParam = false;
+
+
+  public get(key): any {
+    if (NavParamsMock.returnParam) {
+       return NavParamsMock.returnParam
+    }
+    return 'default';
+  }
+  
+  static setParams(value){
+    NavParamsMock.returnParam = value;
+  }
+}
+
+export class ViewControllerMock{
+  readReady = {
+    subscribe(){
+
+    }
+  };
+  writeReady = {
+    subscribe(){
+
+    }
+  };
+
+  dismiss(){
+    console.log('View Controller Dismiss Called');
+  }
+  _setHeader(){
+
+  }
+  _setNavbar(){
+
+  }
+  _setIONContent(){
+
+  }
+  _setIONContentRef(){
+
+  }
+}
 export class DeepLinkerMock {
 
 }
