@@ -10,7 +10,6 @@ import { TopPopoverPage } from '../pages/top-popover/top-popover';
 import { CardPopoverPage } from '../pages/card-popover/card-popover';
 import { WelcomePage } from '../pages/welcome/welcome';
 import { HelpPage } from '../pages/help/help';
-import { HelpAReflectorPage } from '../pages/help-a-reflector/help-a-reflector';
 import { HelpARoutersPage } from '../pages/help-a-routers/help-a-routers';
 import { HelpGEncriptPage } from '../pages/help-g-encript/help-g-encript';
 import { HelpGSharePage } from '../pages/help-g-share/help-g-share';
@@ -22,6 +21,9 @@ import { WiringsProvider } from '../providers/wirings/wirings';
 import { Clipboard } from '@ionic-native/clipboard';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { IonicStorageModule } from '@ionic/storage';
+import { FileChooser } from '@ionic-native/file-chooser';
+import { File } from '@ionic-native/file';
+import { FilePath } from '@ionic-native/file-path';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,6 @@ import { IonicStorageModule } from '@ionic/storage';
     CardPopoverPage,
     WelcomePage,
     HelpPage,
-    HelpAReflectorPage,
     HelpARoutersPage,
     HelpGEncriptPage,
     HelpGSharePage,
@@ -50,7 +51,6 @@ import { IonicStorageModule } from '@ionic/storage';
     CardPopoverPage,
     WelcomePage,
     HelpPage,
-    HelpAReflectorPage,
     HelpARoutersPage,
     HelpGEncriptPage,
     HelpGSharePage,
@@ -64,7 +64,10 @@ import { IonicStorageModule } from '@ionic/storage';
     ReflectorProvider,
     WiringsProvider,
     Clipboard,
-    SocialSharing
+    SocialSharing,
+    FileChooser,
+    File,
+    FilePath
   ]
 })
 export class AppModule {}

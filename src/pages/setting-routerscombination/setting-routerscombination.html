@@ -16,7 +16,8 @@
 <ion-content padding>
 	<ion-card>
 		<ion-card-content>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis ipsa perferendis perspiciatis odio aliquid soluta excepturi, laborum necessitatibus nisi tenetur. Tempora fuga at eum ea rem quos cupiditate repudiandae nemo.
+			Sea libre de elegir tres de los cinco routers disponibles para hacer
+			su encriptado, o importe una configuracion para comenzar.
 		</ion-card-content>
 	</ion-card>
 	<ion-list>
@@ -46,7 +47,7 @@
 			</div>
 	    </ion-select>
 	  </ion-item>
-	 	<ion-item>
+	  <ion-item>
 	    <ion-label>Router 3</ion-label>
 	    <ion-select [(ngModel)]="r3">
   			<div 
@@ -60,6 +61,34 @@
 	    </ion-select>
 	  </ion-item>
 	</ion-list>
+		<ion-grid>
+		    <ion-row>
+			    <ion-col col-80>
+				    <ion-item>
+		    			<ion-input 
+							[(ngModel)] = "namefile"
+							placeholder="Nombre de archivo:" 
+							type="text">
+						</ion-input>
+					</ion-item>
+				</ion-col>
+				<ion-col col-20>
+					<button 
+						full
+						ion-button 
+						(click)="export()"
+						[disabled]="!namefile" 
+						>Exportar
+					</button>
+					<button 
+						full
+						ion-button 
+						(click)="import()" 
+						>Importar
+					</button>	
+			    </ion-col>
+	    	</ion-row>
+    	</ion-grid>
 </ion-content>
 <ion-footer no-shadow>
 	<ion-toolbar position="bottom">

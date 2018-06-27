@@ -3,12 +3,17 @@ import { IonicModule, Platform } from 'ionic-angular';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Storage } from '@ionic/storage';
+
+import { WelcomePage } from '../pages/welcome/welcome';
+import { MainPage } from '../pages/main/main';
 
 import { MyApp } from './app.component';
 import {
   PlatformMock,
   StatusBarMock,
-  SplashScreenMock
+  SplashScreenMock,
+  IonicStorageMock
 } from '../../test-config/mocks-ionic';
 
 describe('MyApp Component', () => {
@@ -24,7 +29,8 @@ describe('MyApp Component', () => {
       providers: [
         { provide: StatusBar, useClass: StatusBarMock },
         { provide: SplashScreen, useClass: SplashScreenMock },
-        { provide: Platform, useClass: PlatformMock }
+        { provide: Platform, useClass: PlatformMock },
+        { provide: Storage, useClass: IonicStorageMock }
       ]
     })
   }));
@@ -36,6 +42,10 @@ describe('MyApp Component', () => {
 
   it('should be created', () => {
     expect(component instanceof MyApp).toBe(true);
+  });
+
+  it('default with a root page of Welcome', () => {
+    expect(component['rootPage']).toBe(WelcomePage);
   });
 
 });

@@ -23,7 +23,7 @@
 			<ion-list no-lines>
 			  <ion-item text-wrap>
 			    <ion-icon class="list" item-start>1</ion-icon>
-			    Configura los routes en la posicion de partida elegida
+			    Configura los routes en la posición de partida elegida
 			  </ion-item>
   			  <ion-item text-wrap>
   			    <ion-icon class="list" item-start>2</ion-icon>
@@ -42,16 +42,22 @@
 	          	</button>
 	        </ion-buttons>
 	      </ion-toolbar>
-	      <img [src]="slide.image" class="slide-image"/>
+	      <ion-icon [name]="slide.icon"></ion-icon>
 	      <h2 class="slide-title" [innerHTML]="slide.title"></h2>
 	      <p [innerHTML]="slide.description"></p>
 	    </ion-slide>
 	    <ion-slide>
 	      <ion-toolbar>
 	      </ion-toolbar>
-	      <img src="assets/img/ica-slidebox-img-4.png" class="slide-image"/>
+	      <ion-icon name="happy"></ion-icon>
 	      <h2 class="slide-title">Listo para encriptar?</h2>
-	      <button ion-button large clear icon-end color="primary">
+	      <button 
+	      	ion-button 
+	      	large 
+	      	clear 
+	      	icon-end
+	      	color="primary"
+	      	(click)="ready()">
 	        Continuar
 	        <ion-icon name="arrow-forward"></ion-icon>
 	      </button>

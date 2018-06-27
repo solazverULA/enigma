@@ -39,6 +39,7 @@ export class MainPage {
   realtime:boolean = false;
   showR:boolean = false;
   recordSize = 0;
+  todaslasLetras:Array<string>;
 
   constructor(
     public navParams: NavParams,
@@ -52,27 +53,47 @@ export class MainPage {
     public storage: Storage
     )
   { 
-    this.positions= ['A', 'A', 'A'];
+    this.positions= [' ', ' ', ' '];
 
-    this.abcStatic=[
-      'A','B','C','D',
-      'E','F','G','H',
-      'I','J','K','L',
-      'M','N','O','P',
-      'Q','R','S','T',
-      'U','V','W','X',
-      'Y','Z'
+    this.abcStatic 
+    = [
+      " ","!","\"","#","$","%","&","'","(",")","*","+",
+      ",","-",".","/","0","1","2","3","4","5","6","7",
+      "8","9",":",";","<","=",">","?","@","A","B","C",
+      "D","E","F","G","H","I","J","K","L","M","N","O",
+      "P","Q","R","S","T","U","V","W","X","Y","Z","[",
+      "\\","]","^","_","`","a","b","c","d","e","f","g",
+      "h","i","j","k","l","m","n","o","p","q","r","s",
+      "t","u","v","w","x","y","z","{","|","}","~","",
+      "","","","","","","","","","",
+      "","","","","","","","","","",
+      "","","","","","","","","","",
+      "",""," ","¡","¢","£","¤","¥","¦","§","¨","©",
+      "ª","«","¬","­","®","¯","°","±","²","³","´","µ","¶",
+      "·","¸","¹","º","»","¼","½","¾","¿","À","Á","Â","Ã",
+      "Ä","Å","Æ","Ç","È","É","Ê","Ë","Ì","Í","Î","Ï","Ð",
+      "Ñ","Ò","Ó","Ô","Õ","Ö","×","Ø","Ù","Ú","Û","Ü","Ý",
+      "Þ","ß","à","á","â","ã","ä","å","æ","ç","è","é","ê",
+      "ë","ì","í","î","ï","ð","ñ","ò","ó","ô","õ","ö","÷",
+      "ø","ù","ú","û","ü","ý","þ","ÿ"
     ];
   }
 
   ionViewWillEnter() {
+    this.storage.get('routersSelected')
+    .then((val) => {
+      this.positions[0] = val[0];
+      this.positions[1] = val[1];
+      this.positions[2] = val[2]; 
+    });
+
     this.storage.get('wiringsSelected')
     .then((val) => {
       this.routers[0].setReg(this.wirings.get(val[0]));
       this.routers[1].setReg(this.wirings.get(val[1]));
       this.routers[2].setReg(this.wirings.get(val[2])); 
     });
-  } 
+  }
 
   read()
   {
@@ -81,6 +102,7 @@ export class MainPage {
       this.outputText = this.outputText.concat(this.encrypt(this.inputText[i]));
     this.inputText = "";
   }
+
   autoRead(){
     if (this.inputText == "") {
       this.outputText =""
@@ -95,6 +117,11 @@ export class MainPage {
   }
 
   move(number) {
+    this.storage.set('routersSelected', [
+      this.positions[0],
+      this.positions[1],
+      this.positions[2]
+    ]);
     this.routers[number].move(this.positions[number]);
   }
 
@@ -105,7 +132,7 @@ export class MainPage {
   }
 
   encrypt(letter)
-  {
+  {  
     letter = this.plugboard.transf(letter);
     letter = this.inside(letter);
     letter = this.reflector.transf(letter);
