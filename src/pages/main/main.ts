@@ -117,11 +117,6 @@ export class MainPage {
   }
 
   move(number) {
-    this.storage.set('routersSelected', [
-      this.positions[0],
-      this.positions[1],
-      this.positions[2]
-    ]);
     this.routers[number].move(this.positions[number]);
   }
 
@@ -179,6 +174,12 @@ export class MainPage {
 
   topPopover(myEvent) 
   {
+    this.storage.set('routersSelected', [
+      this.positions[0],
+      this.positions[1],
+      this.positions[2]
+    ]);
+        
     let popover = this.popoverCtrl.create(TopPopoverPage,{
       realtime: this.realtime
     });
