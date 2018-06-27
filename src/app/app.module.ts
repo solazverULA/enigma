@@ -21,6 +21,9 @@ import { WiringsProvider } from '../providers/wirings/wirings';
 import { Clipboard } from '@ionic-native/clipboard';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { IonicStorageModule } from '@ionic/storage';
+import { FileChooser } from '@ionic-native/file-chooser';
+import { File } from '@ionic-native/file';
+import { FilePath } from '@ionic-native/file-path';
 
 @NgModule({
   declarations: [
@@ -61,7 +64,10 @@ import { IonicStorageModule } from '@ionic/storage';
     ReflectorProvider,
     WiringsProvider,
     Clipboard,
-    SocialSharing
+    SocialSharing,
+    FileChooser,
+    File,
+    FilePath
   ]
 })
 export class AppModule {}

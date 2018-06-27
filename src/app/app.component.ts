@@ -23,6 +23,7 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
+      storage.set('routersSelected', [' ',' ',' ']);
       storage.set('wiringsSelected', [0,1,2]);
       storage.get('ready').then((val) => {
         if(val) this.rootPage = MainPage;

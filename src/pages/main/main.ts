@@ -80,13 +80,20 @@ export class MainPage {
   }
 
   ionViewWillEnter() {
+    this.storage.get('routersSelected')
+    .then((val) => {
+      this.positions[0] = val[0];
+      this.positions[1] = val[1];
+      this.positions[2] = val[2]; 
+    });
+
     this.storage.get('wiringsSelected')
     .then((val) => {
       this.routers[0].setReg(this.wirings.get(val[0]));
       this.routers[1].setReg(this.wirings.get(val[1]));
       this.routers[2].setReg(this.wirings.get(val[2])); 
     });
-  } 
+  }
 
   read()
   {
@@ -95,6 +102,7 @@ export class MainPage {
       this.outputText = this.outputText.concat(this.encrypt(this.inputText[i]));
     this.inputText = "";
   }
+
   autoRead(){
     if (this.inputText == "") {
       this.outputText =""
@@ -109,6 +117,11 @@ export class MainPage {
   }
 
   move(number) {
+    this.storage.set('routersSelected', [
+      this.positions[0],
+      this.positions[1],
+      this.positions[2]
+    ]);
     this.routers[number].move(this.positions[number]);
   }
 

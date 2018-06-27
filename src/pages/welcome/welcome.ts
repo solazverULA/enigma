@@ -26,19 +26,19 @@ export class WelcomePage {
     {
       title: "Bienvenido a Enigma",
       description: "EL <b>Enigma</b> Proyecto busca aumentar la seguridad de la información que compartes día a día,"
-      +"con una aplicacion de bolsillo, para usarla cuando quieras y donde quieras",
+      +"con una aplicación de bolsillo, para usarla cuando quieras y donde quieras",
       icon:"key"
     },
     {
       title: "Informacion Personal",
-      description: "<b>Enigma</b> Nunca, Recoleptara o ningun tipo de información personal durante su ejecucion,"+
-      "asegurece que la posicion de los routers sea la correcta.",
+      description: "<b>Enigma</b> Nunca, Recoleptara o ningun tipo de información personal durante su ejecución,"+
+      "asegúrese que la posición de los routers sea la correcta.",
       icon:"alert"
     }
   ];
 
   ready() {
-  	//this.storage.set('ready', true);
+  	this.storage.set('ready', true);
   	this.navCtrl.setRoot(MainPage);
   }
 }
