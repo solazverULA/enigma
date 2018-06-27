@@ -30,8 +30,14 @@ export class WelcomePage {
       icon:"key"
     },
     {
-      title: "Informacion Personal",
-      description: "<b>Enigma</b> Nunca, Recoleptara o ningun tipo de información personal durante su ejecución,"+
+      title: "Importar/Exportar configuración",
+      description: "Puede <b>Importar</b> y <b>Exportar</b> su configuración en un archivo <b>*.enm</b>"+
+      "desde la vista de configuraciones, <i>los archivos exportados se localizan en la carpeta <b>enigmaFolder</b></i>",
+      icon:"document"
+    },
+    {
+      title: "Información Personal",
+      description: "<b>Enigma</b> Nunca recoleptara ningun tipo de información personal durante su ejecución,"+
       "asegúrese que la posición de los routers sea la correcta.",
       icon:"alert"
     }

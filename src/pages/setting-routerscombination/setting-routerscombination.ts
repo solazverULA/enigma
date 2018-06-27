@@ -108,7 +108,13 @@ export class SettingRouterscombinationPage {
           this.r3 = Number(contentArray[2]);
           this.p1 = contentArray[3];
           this.p2 = contentArray[4];
-          this.p3 = contentArray[5];  
+          this.p3 = contentArray[5]; 
+
+          const toast = this.toastCtrl.create({
+            message: 'Configuración Cargada',
+            duration: 3000
+          });
+          toast.present(); 
         }
       });
     }
