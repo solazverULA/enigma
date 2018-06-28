@@ -32,10 +32,13 @@ export class SettingRouterscombinationPage {
   	public navCtrl: NavController,
   	public wiring: WiringsProvider,
     public storage: Storage,
-    public toastCtrl: ToastController,
+    public toastCtrl: ToastController
+    /*,
     private file: File,
     private fileChooser: FileChooser,
-    private filePath: FilePath)
+    private filePath: FilePath
+    */
+    )
   {
     storage.get('wiringsSelected').then((val) => {
       this.r1 = val[0];
@@ -57,6 +60,7 @@ export class SettingRouterscombinationPage {
     this.navCtrl.push(MainPage);
   }
 
+  /*
   import(){
     this.fileChooser.open()
       .then(uri => 
@@ -162,4 +166,5 @@ export class SettingRouterscombinationPage {
     }
 
   }
+  */
 }

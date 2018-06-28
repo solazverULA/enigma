@@ -117,7 +117,7 @@ export class MainPage {
   }
 
   move(number) {
-    this.routers[number].move(this.positions[number]);
+    return this.routers[number].move(this.positions[number]);
   }
 
   restart(){

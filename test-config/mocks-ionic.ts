@@ -3,6 +3,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { IonicStorageModule } from '@ionic/storage';
 import { WiringsProvider } from '../src/providers/wirings/wirings';
 
+import { Clipboard } from '@ionic-native/clipboard';
+import { SocialSharing } from '@ionic-native/social-sharing';
+import { ToastController } from 'ionic-angular';
+
 export class PlatformMock {
   public ready(): Promise<string> {
     return new Promise((resolve) => {
@@ -66,6 +70,16 @@ export class PlatformMock {
   public getActiveElement(): any {
     return document['activeElement'];
   }
+}
+
+export class ClipboardMock extends Clipboard{
+
+}
+export class SocialSharingMock extends SocialSharing{
+
+}
+export class ToastControllerMock extends ToastController{
+
 }
 
 export class StatusBarMock extends StatusBar {
